@@ -1,0 +1,29 @@
+# Env
+.env
+.env.*
+!.env.example
+
+# Go build
+server
+bin/
+tmp/
+*.exe
+*.out
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker local
+docker-compose.override.yml
+
+# Frontend build nếu frontend nằm trong repo này
+innolabs-dashboard/node_modules/
+innolabs-dashboard/dist/

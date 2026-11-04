@@ -1,0 +1,23 @@
+CREATE TABLE users (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    full_name VARCHAR(150) NOT NULL,
+    phone VARCHAR(20),
+
+    role ENUM('ADMIN', 'STAFF', 'CLIENT')
+        NOT NULL DEFAULT 'STAFF',
+
+    status ENUM('ACTIVE', 'INACTIVE', 'BANNED')
+        NOT NULL DEFAULT 'ACTIVE',
+
+    last_login_at DATETIME NULL,
+
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    INDEX idx_users_role (role),
+    INDEX idx_users_status (status)
+);
